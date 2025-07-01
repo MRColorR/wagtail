@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+
+# Media and static
+staticfiles/
+data/media/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtualenv
+.env/
+.venv/
+
+# Docker
+*.tar
+*.pid
+
+# Kubernetes configs (optional overrides)
+*.local.yaml
+
+# VSCode / IDEs
+.vscode/
+.idea/
+
+app
