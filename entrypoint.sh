@@ -40,7 +40,9 @@ pip install --no-cache-dir -r requirements.txt
 export SECRET_KEY="$DJANGO_SECRET_KEY"
 # export ALLOWED_HOSTS=${ALLOWED_HOSTS:-*}
 
-# 7️⃣ Apply migrations
+# 7️⃣ Generate and Apply migrations
+echo "⚙️ Checking for migrations..."
+python manage.py makemigrations
 echo "⚙️ Applying migrations..."
 python manage.py migrate
 
