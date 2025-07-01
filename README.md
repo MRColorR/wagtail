@@ -99,7 +99,7 @@ Common use cases:
 # Start a new Wagtail project with persistent data
 mkdir -p ./data/media
 docker run --rm -it \
-  -v $PWD/data:/app/data \
+  -v $PWD/app/data:/app/data \
   -e DJANGO_SECRET_KEY=your-secret \
   -e DJANGO_SUPERUSER_USERNAME=admin \
   -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
@@ -243,4 +243,4 @@ Distributed under the **GNU General Public License v3.0**. See `LICENSE` for mor
 
 ---
 
-_Made with ❤️ for the Wagtail community_
+_Made with ❤️ for the community_
