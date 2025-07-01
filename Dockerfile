@@ -1,8 +1,8 @@
 # Base image with Python & system deps
 FROM python:3.12-slim
 
-# Add user that will be used in the container.
-RUN useradd wagtail
+# Add user that will be used in the container with fixed UID/GID and no home directory.
+RUN groupadd -g 1000 wagtail && useradd -u 1000 -g 1000 wagtail
 
 # Port used by this container to serve HTTP.
 EXPOSE 8000
