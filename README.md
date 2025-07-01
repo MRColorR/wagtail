@@ -1,7 +1,8 @@
 # 🎯 Wagtail Image Starter Kit
 
-![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square)
-![GitHub Repo stars](https://img.shields.io/github/stars/MRColorR/wagtail?style=flat-square)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorr/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
+![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
+![Docker Stars](https://img.shields.io/docker/stars/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 
 > **🔍 Quick Overview:** The easiest way to run Wagtail CMS in Docker or Kubernetes. Launch a simple Wagtail CMS website in minutes with persistent storage (Docker volumes, bind mounts, or Kubernetes PVCs), automated setup, and zero manual configuration. **Keywords:** wagtail docker image, wagtail starter kit, wagtail cms, wagtail kubernetes, wagtail docker-compose, wagtail quickstart, wagtail CMS, wagtail website, wagtail blog, wagtail image
 
