@@ -9,7 +9,7 @@
 
 ## Table of Contents
 
-- [Key Features 🌟](#key-features-🌟)
+- [Key Features 🌟](#-key-features)
 - [Quick Start 🚀](#quick-start-🚀)
 - [Usage 📚](#usage-📚)
 - [Configuration 🔧](#configuration-🔧)
@@ -21,7 +21,7 @@
 - [License 📄](#license-📄)
 - [Links and Support 🔗](#links-and-support-🔗)
 
-## Key Features 🌟
+## 🌟 Key Features
 
 - **🚀 Instant Wagtail Setup:** Start a new Wagtail CMS project with a single Docker command—no manual steps required.
 - **💾 Persistent Storage:** Supports Docker volumes, bind mounts, and Kubernetes PVCs for database and media files.
