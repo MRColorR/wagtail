@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wagtail-website-config
+data:
+  # Optional settings—will be picked up by entrypoint defaults if not overridden
+  PROJECT_NAME: mysite
+  DEST_DIR: /app/data

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wagtail-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wagtail-website
+  template:
+    metadata:
+      labels:
+        app: wagtail-website
+    spec:
+      containers:
+        - name: wagtail-website
+          image: mrcolorrain/wagtail:latest
+          ports:
+            - containerPort: 8000
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          envFrom:
+            - secretRef:
+                name: wagtail-website-secret
+            - configMapRef:
+                name: wagtail-website-config
+          volumeMounts:
+            - name: wagtail-website-data
+              mountPath: /app/data
+      volumes:
+        - name: wagtail-website-data
+          persistentVolumeClaim:
+            claimName: wagtail-website-data-pvc
