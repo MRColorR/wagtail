@@ -9,17 +9,17 @@
 
 ## Table of Contents
 
-- [Key Features 🌟](#-key-features)
-- [Quick Start 🚀](#quick-start-🚀)
-- [Usage 📚](#usage-📚)
-- [Configuration 🔧](#configuration-🔧)
-- [Modules and Plugins 📦](#modules-and-plugins-📦)
-- [Examples 📝](#examples-📝)
-- [FAQ ❓](#faq-❓)
-- [Contributing 🤝](#contributing-🤝)
-- [Support the Project 🫶](#support-the-project-🫶)
-- [License 📄](#license-📄)
-- [Links and Support 🔗](#links-and-support-🔗)
+- [🌟 Key Features](#-key-features)
+- [🚀 Quick Start](#-quick-start)
+- [📚 Usage](#-usage)
+- [🔧 Configuration](#-configuration)
+- [📦 Modules and Plugins](#-modules-and-plugins)
+- [📝 Examples](#-examples)
+- [❓ FAQ](#-faq)
+- [🤝 Contributing](#-contributing)
+- [🫶 Support the Project](#-support-the-project)
+- [📄 License](#-license)
+- [🔗 Links and Support](#-links-and-support)
 
 ## 🌟 Key Features
 
@@ -33,7 +33,7 @@
 
 > _Why choose Wagtail Image Starter Kit?_ Launch your Wagtail CMS in minutes—just pull, run, and go! ⭐️
 
-## Quick Start 🚀
+## 🚀 Quick Start
 
 Get up and running in less than 5 minutes:
 
@@ -86,7 +86,7 @@ docker build -t mrcolorrain/wagtail:latest -f Dockerfile .
 
 Then run the image as shown above.
 
-## Usage 📚
+## 📚 Usage
 
 Common use cases:
 
@@ -116,7 +116,7 @@ _For a full list of commands, open a shell inside the container and run:_
 python manage.py --help
 ```
 
-## Configuration 🔧
+## 🔧 Configuration
 
 Set environment variables to customize your instance:
 
@@ -129,7 +129,7 @@ Set environment variables to customize your instance:
 | DJANGO_SUPERUSER_EMAIL    | Admin email          | Yes      | -                |
 | DJANGO_SUPERUSER_PASSWORD | Admin password       | Yes      | -                |
 
-## Modules and Plugins 📦
+## 📦 Modules and Plugins
 
 | Module/Plugin | Description       | Enabled by Default |
 | ------------- | ----------------- | ------------------ |
@@ -137,7 +137,7 @@ Set environment variables to customize your instance:
 | Gunicorn      | Production server | Yes                |
 | SQLite        | Default DB        | Yes                |
 
-## Examples 📝
+## 📝 Examples
 
 - **Run with Docker Compose:**
 
@@ -162,7 +162,7 @@ Set environment variables to customize your instance:
   tar czvf wagtail-backup.tar.gz ./data
   ```
 
-## FAQ ❓
+## ❓ FAQ
 
 **Q: Can I use this for production?**
 A: This is a starter kit for easy Wagtail deployment. For high-traffic or production use, consider switching to PostgreSQL and customizing security settings.
@@ -173,7 +173,7 @@ A: Use Docker volumes, bind mounts, or Kubernetes PVCs to store `/app/data` (the
 **Q: How do I backup my site?**
 A: Backup the `/app/data` directory (contains SQLite DB and media files). If you changed `DEST_DIR`, backup that directory instead.
 
-## Contributing 🤝
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -181,7 +181,7 @@ A: Backup the `/app/data` directory (contains SQLite DB and media files). If you
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## Support the Project 🫶
+## 🫶 Support the Project
 
 Your support helps keep this project alive and accessible for everyone. Here’s how you can help:
 
@@ -223,11 +223,11 @@ The author makes no warranties, express or implied, that this Wagtail Docker Sta
 
 The author shall not be held liable for any damages suffered by any user of this project or its documentation, whether direct, indirect, incidental, consequential, or special, arising from the use of or inability to use this project.
 
-## License 📄
+## 📄 License
 
 Distributed under the **GNU General Public License v3.0**. See `LICENSE` for more information.
 
-## Links and Support 🔗
+## 🔗 Links and Support
 
 - **Documentation:** [Wagtail Docs](https://docs.wagtail.org/)
 - **Issues:** [GitHub Issues](https://github.com/MRColorR/wagtail/issues)
