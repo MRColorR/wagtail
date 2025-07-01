@@ -5,6 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx # Ensure you have an NGINX Ingress Controller installed or change this to your Ingress class
   rules:
   - host: wagtail.mydomain.it
     http:
