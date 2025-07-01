@@ -4,7 +4,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 ![Docker Stars](https://img.shields.io/docker/stars/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 
-> **🔍 Quick Overview:** The easiest way to run Wagtail CMS in Docker or Kubernetes. Launch a simple Wagtail CMS website in minutes with persistent storage (Docker volumes, bind mounts, or Kubernetes PVCs), automated setup, and zero manual configuration. **Keywords:** wagtail docker image, wagtail starter kit, wagtail cms, wagtail kubernetes, wagtail docker-compose, wagtail quickstart, wagtail CMS, wagtail website, wagtail blog, wagtail image
+> **🔍 Overview:** The easiest way to run Wagtail CMS in Docker or Kubernetes. Launch a simple Wagtail CMS website in minutes with persistent storage (Docker volumes, bind mounts, or Kubernetes PVCs), automated setup, and zero manual configuration. **Keywords:** wagtail docker image, wagtail starter kit, wagtail cms, wagtail kubernetes, wagtail docker-compose, wagtail quickstart, wagtail CMS, wagtail website, wagtail blog, wagtail image
 
 ⭐️ If you found this project helpful, please give it a star on GitHub! ⭐️
 
@@ -39,6 +39,7 @@
 Get up and running in less than 5 minutes:
 
 ### 🐳 Docker
+
 If you have Docker installed, you can run Wagtail with a single command:
 
 ```bash
@@ -54,7 +55,9 @@ docker run -d --name wagtail \
 ```
 
 ### ☸️ Kubernetes
+
 If you prefer Kubernetes, you can deploy Wagtail using the provided manifests:
+
 1. **Edit manifests** (if needed):
 
    - Update `k8s/pvc.yaml` for your storage class.
@@ -77,6 +80,7 @@ If you prefer Kubernetes, you can deploy Wagtail using the provided manifests:
 > **Tip:** Use Docker volumes or bind mounts for local dev, and PVCs for Kubernetes.
 
 ### 📦 Build from Source
+
 If you want to customize the image or contribute to the project, you can build it from source:
 
 ```bash
@@ -137,6 +141,8 @@ Set environment variables to customize your instance:
 | Wagtail       | CMS core          | Yes                |
 | Gunicorn      | Production server | Yes                |
 | SQLite        | Default DB        | Yes                |
+
+> **Tip:** Use your own database and add your desired plugins by overriding settings or mounting a custom config. This makes it easy to extend your Wagtail project with any third-party or custom modules you prefer.
 
 ## 📝 Examples
 
