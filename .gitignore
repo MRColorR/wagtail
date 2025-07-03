@@ -33,4 +33,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-app
+app/data/*
+!app/data/your-first-wagtail-site/
+!app/data/your-first-wagtail-site/**
+*pyc

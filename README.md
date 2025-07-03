@@ -1,6 +1,6 @@
 # 🎯 Wagtail Image Starter Kit
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorr/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorrain/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
 ![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 ![Docker Stars](https://img.shields.io/docker/stars/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 
@@ -120,6 +120,55 @@ _For a full list of commands, open a shell inside the container and run:_
 ```bash
 python manage.py --help
 ```
+
+## ▶️ Run the Example Project Locally (from app/data/your-first-wagtail-site)
+
+The included Wagtail example site is located in `app/data/your-first-wagtail-site/`.
+You can run it directly with Python for local development:
+
+1. **Install dependencies**
+   ```bash
+   cd app/data/your-first-wagtail-site
+   pip install -r ../requirements.txt
+   ```
+
+2. **Apply migrations and create a superuser**
+   ```bash
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+
+3. **Run the development server**
+   ```bash
+   python manage.py runserver 0.0.0.0:8000
+   ```
+
+4. **Access the site**
+   - Website: [http://localhost:8000/](http://localhost:8000/)
+   - Admin: [http://localhost:8000/admin/](http://localhost:8000/admin/)
+
+> **Note:** Only `app/data/your-first-wagtail-site/` is tracked in git; all other data is ignored by default so you can safely experiment without affecting the repository.
+
+### 🐳 Docker (using the example app)
+
+If you want to run the included example project in Docker, use this command:
+
+```bash
+docker run --rm -it \
+  -v $PWD/app/data:/app/data \
+  -e DJANGO_SECRET_KEY=your-secret \
+  -e DJANGO_SUPERUSER_USERNAME=admin \
+  -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
+  -e DJANGO_SUPERUSER_PASSWORD=supersecret \
+  -e PROJECT_NAME=mysite \
+  -e DEST_DIR=/app/data/your-first-wagtail-site \
+  -p 8000:8000 \
+  mrcolorrain/wagtail:latest
+```
+
+Or adjust the `-v` mount and environment variables as needed for your setup.
+
+> **Tip:** You can copy the `app/data/your-first-wagtail-site/` folder to another location (for example, `app/data/my-new-site/`) to quickly start a minimal, fully functional Wagtail project based on the Wagtail quickstart. Just update your Docker or local commands to use the new folder path.
 
 ## 🔧 Configuration
 

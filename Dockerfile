@@ -28,13 +28,14 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
 # Use /app folder as a directory where the source code is stored.
 WORKDIR /app
 
-# Copy bootstrap requirements and entrypoint script
+# Copy bootstrap requirements and install them
 COPY --chown=wagtail:wagtail bootstrap-requirements.txt /app/
+RUN pip install --no-cache-dir -r bootstrap-requirements.txt
+# Copy the entrypoint script
 COPY --chown=wagtail:wagtail entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
-# Install bootstrap requirements
-RUN pip install --no-cache-dir -r bootstrap-requirements.txt
+
 
 # Prepare directories and permissions
 # Set directories to be owned by the "wagtail" user. This Wagtail project
@@ -43,7 +44,7 @@ RUN pip install --no-cache-dir -r bootstrap-requirements.txt
 RUN chown -R wagtail:wagtail /app
 
 # Switch to non-root user for runtime
-USER wagtail
+# USER wagtail
 
 # Entrypoint will handle install, migrations, superuser, static, server
 ENTRYPOINT ["/app/entrypoint.sh"]
