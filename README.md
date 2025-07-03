@@ -205,7 +205,7 @@ Set environment variables to customize your instance:
       ports:
         - "8000:8000"
       volumes:
-        - ./data:/app/data
+        - ./app/data:/app/data
       environment:
         DJANGO_SECRET_KEY: your-secret
         DJANGO_SUPERUSER_USERNAME: admin
