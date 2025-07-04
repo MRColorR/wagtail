@@ -1,6 +1,6 @@
 # 🎯 Wagtail Image Starter Kit
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorrain/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorr/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
 ![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 ![Docker Stars](https://img.shields.io/docker/stars/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
 
