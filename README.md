@@ -206,8 +206,23 @@ Set environment variables to customize your instance:
 | Wagtail       | CMS core          | Yes                |
 | Gunicorn      | Production server | Yes                |
 | SQLite        | Default DB        | Yes                |
+| wagtail-markdown | Markdown support for content fields (choose between RichText and Markdown editors) | Yes |
 
 > **Tip:** Use your own database and add your desired plugins by overriding settings or mounting a custom config. This makes it easy to extend your Wagtail project with any third-party or custom modules you prefer.
+
+## ✍️ Markdown Support
+
+This starter kit includes built-in support for Markdown content editing using the [wagtail-markdown](https://github.com/torchbox/wagtail-markdown) plugin.
+
+- **Per-page editor selection:** For all main content types (homepage, blog, knowledge base), you can choose between the standard Wagtail RichText editor or a Markdown editor for each page.
+- **How it works:** In the Wagtail admin, select your preferred editor type ("RichText" or "Markdown") when creating or editing a page. If you select Markdown, the content field will use a Markdown editor and render Markdown on the site.
+- **Technical details:**
+  - The example project models include both RichText and Markdown fields, plus an `editor_type` selector.
+  - Templates use `{% load wagtailmarkdown %}` and render the correct content type based on the selector.
+  - The `wagtail-markdown` package is included in `requirements.txt` and enabled in `INSTALLED_APPS`.
+- **Extending:** You can apply this pattern to your own models and templates for flexible Markdown/RichText support.
+
+> See the example project in `app/examples/your-first-wagtail-site/` for implementation details.
 
 ## 📝 Examples
 
