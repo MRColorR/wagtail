@@ -45,7 +45,7 @@ If you have Docker installed, you can run Wagtail with a single command:
 ```bash
 docker pull mrcolorrain/wagtail:latest
 docker run -d --name wagtail \
-  -v $PWD/data:/app/data \
+  -v $PWD/app/data:/app/data \
   -e DJANGO_SECRET_KEY=your-secret \
   -e DJANGO_SUPERUSER_USERNAME=admin \
   -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
