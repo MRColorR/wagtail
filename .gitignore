@@ -34,6 +34,6 @@ Thumbs.db
 .idea/
 
 app/data/*
-!app/data/your-first-wagtail-site/
-!app/data/your-first-wagtail-site/**
+!app/examples/your-first-wagtail-site/
+!app/examples/your-first-wagtail-site/**
 *pyc

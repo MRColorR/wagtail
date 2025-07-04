@@ -97,8 +97,7 @@ Common use cases:
 
 ```bash
 # Start a new Wagtail project with persistent data
-mkdir -p ./data/media
-docker run --rm -it \
+docker run -d --name wagtail \
   -v $PWD/app/data:/app/data \
   -e DJANGO_SECRET_KEY=your-secret \
   -e DJANGO_SUPERUSER_USERNAME=admin \
@@ -108,7 +107,7 @@ docker run --rm -it \
   mrcolorrain/wagtail:latest
 
 # Use a custom project name and data directory
-docker run --rm -it \
+docker run -d --name wagtail \
   -v $PWD/mydata:/custom/data \
   -e PROJECT_NAME=myproject \
   -e DEST_DIR=/custom/data \
@@ -121,14 +120,17 @@ _For a full list of commands, open a shell inside the container and run:_
 python manage.py --help
 ```
 
-## ▶️ Run the Example Project Locally (from app/data/your-first-wagtail-site)
+## ▶️ Run the Example Project
 
-The included Wagtail example site is located in `app/data/your-first-wagtail-site/`.
-You can run it directly with Python for local development:
+The included Wagtail example `/app/examples/your-first-wagtail-site/`  is available in both image and source code.
+
+### 🐍 Run locally from source code with Python
+
+You can run it directly with Python for local development, or copy it to your data directory to start a new project:
 
 1. **Install dependencies**
    ```bash
-   cd app/data/your-first-wagtail-site
+   cd app/examples/your-first-wagtail-site
    pip install -r ../requirements.txt
    ```
 
@@ -147,28 +149,44 @@ You can run it directly with Python for local development:
    - Website: [http://localhost:8000/](http://localhost:8000/)
    - Admin: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
-> **Note:** Only `app/data/your-first-wagtail-site/` is tracked in git; all other data is ignored by default so you can safely experiment without affecting the repository.
+> **Note:** The example is tracked in `app/examples/your-first-wagtail-site/` in the repo, and always available at `/app/examples/your-first-wagtail-site/` inside the container, even if you mount a volume over `/app/data`.
 
-### 🐳 Docker (using the example app)
+### 🐳 Run using Docker image
 
-If you want to run the included example project in Docker, use this command:
+If you want to run the included example project in Docker, you can use it from the `/app/examples/your-first-wagtail-site/` path, even if you mount a volume over `/app/data`:
 
 ```bash
-docker run --rm -it \
+# Run the example directly from the image (no need to copy anything):
+docker run -d --name wagtail \
+  -e DJANGO_SECRET_KEY=your-secret \
+  -e DJANGO_SUPERUSER_USERNAME=admin \
+  -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
+  -e DJANGO_SUPERUSER_PASSWORD=supersecret \
+  -e PROJECT_NAME=mysite \
+  -e DEST_DIR=/app/examples/your-first-wagtail-site \
+  -p 8000:8000 \
+  mrcolorrain/wagtail:latest
+```
+
+Or, to start a new project based on the example, copy it to your data directory and set `DEST_DIR` accordingly:
+
+```bash
+# Example: copy the example to your data directory
+cp -r app/examples/your-first-wagtail-site app/data/my-new-site
+# Then run the image again with:
+docker run -d --name wagtail \
   -v $PWD/app/data:/app/data \
   -e DJANGO_SECRET_KEY=your-secret \
   -e DJANGO_SUPERUSER_USERNAME=admin \
   -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
   -e DJANGO_SUPERUSER_PASSWORD=supersecret \
   -e PROJECT_NAME=mysite \
-  -e DEST_DIR=/app/data/your-first-wagtail-site \
+  -e DEST_DIR=/app/data/my-new-site \
   -p 8000:8000 \
   mrcolorrain/wagtail:latest
 ```
 
-Or adjust the `-v` mount and environment variables as needed for your setup.
-
-> **Tip:** You can copy the `app/data/your-first-wagtail-site/` folder to another location (for example, `app/data/my-new-site/`) to quickly start a minimal, fully functional Wagtail project based on the Wagtail quickstart. Just update your Docker or local commands to use the new folder path.
+> **Tip:** The ready to use example is always available at `/app/examples/your-first-wagtail-site/` inside the container, so you can copy it out at any time, even if `/app/data` is mounted as a volume.
 
 ## 🔧 Configuration
 

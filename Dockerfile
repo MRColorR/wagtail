@@ -43,6 +43,9 @@ RUN chmod +x /app/entrypoint.sh
 # will be writing to the database file.
 RUN chown -R wagtail:wagtail /app
 
+# Copy the example project into the image at /app/examples/your-first-wagtail-site
+COPY --chown=wagtail:wagtail app/examples/your-first-wagtail-site /app/examples/your-first-wagtail-site
+
 # Switch to non-root user for runtime
 # USER wagtail
 
