@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
-
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailmarkdown wagtailimages_tags %}
 
 {% block body_class %}template-blogpage{% endblock %}
 
@@ -26,7 +24,11 @@
 
     <div class="intro">{{ page.intro }}</div>
 
-    {{ page.body|richtext }}
+    {% if page.editor_type == 'markdown' %}
+        {{ page.body_markdown|markdown }}
+    {% else %}
+        {{ page.body_richtext|richtext }}
+    {% endif %}
 
     {% for item in page.gallery_images.all %}
         <div style="float: inline-start; margin: 10px">

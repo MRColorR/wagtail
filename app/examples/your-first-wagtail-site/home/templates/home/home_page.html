@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 <!-- load wagtailcore_tags by adding this: -->
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailmarkdown %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 <!-- replace everything below with: -->
 {% block content %}
-    {{ page.body|richtext }}
+    {% if page.editor_type == 'markdown' %}
+        {{ page.body_markdown|markdown }}
+    {% else %}
+        {{ page.body_richtext|richtext }}
+    {% endif %}
 {% endblock %}

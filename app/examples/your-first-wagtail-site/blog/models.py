@@ -1,27 +1,43 @@
 from django import forms
 from django.db import models
-
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
+from wagtailmarkdown.fields import MarkdownField
 
 
 class BlogIndexPage(Page):
-    intro = RichTextField(blank=True)
+    EDITOR_CHOICES = [
+        ('richtext', 'Rich Text'),
+        ('markdown', 'Markdown'),
+    ]
+    editor_type = models.CharField(
+        max_length=10,
+        choices=EDITOR_CHOICES,
+        default='richtext',
+        help_text="Choose which editor to use for the intro."
+    )
+    intro_richtext = RichTextField(blank=True)
+    intro_markdown = MarkdownField(blank=True)
 
     def get_context(self, request):
-        # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
         blogpages = self.get_children().live().order_by('-first_published_at')
         context['blogpages'] = blogpages
         return context
 
-    content_panels = Page.content_panels + ["intro"]
+    content_panels = Page.content_panels + [
+        MultiFieldPanel([
+            FieldPanel('editor_type'),
+            FieldPanel('intro_richtext'),
+            FieldPanel('intro_markdown'),
+        ], heading="Intro Content"),
+    ]
 
 
 class BlogPageTag(TaggedItemBase):
@@ -31,10 +47,22 @@ class BlogPageTag(TaggedItemBase):
         on_delete=models.CASCADE
     )
 
+
 class BlogPage(Page):
+    EDITOR_CHOICES = [
+        ('richtext', 'Rich Text'),
+        ('markdown', 'Markdown'),
+    ]
+    editor_type = models.CharField(
+        max_length=10,
+        choices=EDITOR_CHOICES,
+        default='richtext',
+        help_text="Choose which editor to use for the body."
+    )
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    body_richtext = RichTextField(blank=True)
+    body_markdown = MarkdownField(blank=True)
     authors = ParentalManyToManyField('blog.Author', blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 
@@ -47,17 +75,30 @@ class BlogPage(Page):
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
-        index.SearchField('body'),
+        index.SearchField('body_richtext'),
+        index.SearchField('body_markdown'),
     ]
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
-            "date",
-            FieldPanel("authors", widget=forms.CheckboxSelectMultiple),
-            "tags",
+            FieldPanel('date'),
+            FieldPanel('authors', widget=forms.CheckboxSelectMultiple),
+            FieldPanel('tags'),
         ], heading="Blog information"),
-        "intro", "body", "gallery_images"
+        FieldPanel('intro'),
+        MultiFieldPanel([
+            FieldPanel('editor_type'),
+            FieldPanel('body_richtext'),
+            FieldPanel('body_markdown'),
+        ], heading="Body Content"),
+        InlinePanel('gallery_images', label="Gallery images"),
     ]
+
+    @property
+    def display_body(self):
+        if self.editor_type == 'markdown':
+            return self.body_markdown
+        return self.body_richtext
 
 
 class BlogPageGalleryImage(Orderable):
