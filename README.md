@@ -93,28 +93,22 @@ Then run the image as shown above.
 
 ## 📚 Usage
 
-Common use cases:
+To customize your project name and data directory, add the `PROJECT_NAME` and `DEST_DIR` environment variables and adjust the volume mount:
 
 ```bash
-# Start a new Wagtail project with persistent data
 docker run -d --name wagtail \
-  -v $PWD/app/data:/app/data \
+  -v $PWD/mydata:/app/data/custom \
   -e DJANGO_SECRET_KEY=your-secret \
   -e DJANGO_SUPERUSER_USERNAME=admin \
   -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
   -e DJANGO_SUPERUSER_PASSWORD=supersecret \
+  -e PROJECT_NAME=myproject \
+  -e DEST_DIR=/app/data/custom \
   -p 8000:8000 \
   mrcolorrain/wagtail:latest
-
-# Use a custom project name and data directory
-docker run -d --name wagtail \
-  -v $PWD/mydata:/custom/data \
-  -e PROJECT_NAME=myproject \
-  -e DEST_DIR=/custom/data \
-  ...
 ```
 
-_For a full list of commands, open a shell inside the container and run:_
+_For a full list of `manage.py` commands, open a shell inside the container and run:_
 
 ```bash
 python manage.py --help
@@ -158,6 +152,7 @@ If you want to run the included example project in Docker, you can use it from t
 ```bash
 # Run the example directly from the image (no need to copy anything):
 docker run -d --name wagtail \
+  -v $PWD/app/data:/app/data \
   -e DJANGO_SECRET_KEY=your-secret \
   -e DJANGO_SUPERUSER_USERNAME=admin \
   -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
@@ -172,6 +167,9 @@ Or, to start a new project based on the example, copy it to your data directory 
 
 ```bash
 # Example: copy the example to your data directory
+# Option 1: copy example from inside the container shell to data directory
+cp -r /app/examples/your-first-wagtail-site /app/data/my-new-site
+# Option 2: copy example from source code to data directory
 cp -r app/examples/your-first-wagtail-site app/data/my-new-site
 # Then run the image again with:
 docker run -d --name wagtail \
