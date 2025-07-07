@@ -21,10 +21,11 @@
             {% endwith %}
             <p>{{ post.intro }}</p>
             {% if post.editor_type == 'markdown' %}
-                {{ post.body_markdown|markdown }}
+                {{ post.body_markdown|truncatechars:256|markdown }}
             {% else %}
-                {{ post.body_richtext|richtext }}
+                {{ post.body_richtext|truncatechars:256|richtext }}
             {% endif %}
+            <a href="{% pageurl post %}">Read more</a>
         {% endwith %}
     {% endfor %}
 {% endblock %}
