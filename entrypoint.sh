@@ -10,6 +10,7 @@ set -euo pipefail
 # 2️⃣ Defaults for optional vars
 PROJECT_NAME=${PROJECT_NAME:-mysite}
 DEST_DIR=${DEST_DIR:-$PROJECT_NAME}
+WAGTAIL_TEMPLATE_PATH=${WAGTAIL_TEMPLATE_PATH:-}
 
 echo "🔧 Using PROJECT_NAME='${PROJECT_NAME}'"
 echo "🔧 Using DEST_DIR='${DEST_DIR}'"
@@ -25,7 +26,12 @@ echo "⚙️ Checking project..."
 if [ ! -d "$DEST_DIR/$PROJECT_NAME" ] || [ ! -f "$DEST_DIR/manage.py" ]; then
   echo "❗ Project directory '$DEST_DIR/$PROJECT_NAME' does not exist or manage.py is missing. Creating Wagtail project..."
   echo "⚙️ Running 'wagtail start' to create project '$PROJECT_NAME'..."
-  wagtail start $PROJECT_NAME $DEST_DIR
+  if [ -n "$WAGTAIL_TEMPLATE_PATH" ]; then
+    echo "Using user defined custom Wagtail template path: $WAGTAIL_TEMPLATE_PATH as template for project creation."
+    wagtail start --template "$WAGTAIL_TEMPLATE_PATH" $PROJECT_NAME $DEST_DIR
+  else
+    wagtail start $PROJECT_NAME $DEST_DIR
+  fi
   cd $DEST_DIR
 else
   echo "✔️ Project directory '$DEST_DIR/$PROJECT_NAME' already exists. Skipping project creation."

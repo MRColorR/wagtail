@@ -11,7 +11,8 @@ EXPOSE 8000
 ENV PYTHONUNBUFFERED=1 \
     PORT=8000 \
     PROJECT_NAME=myawesomewebsite \
-    DEST_DIR="/app/data"
+    DEST_DIR="/app/data" \
+    WAGTAIL_TEMPLATE_PATH=""
 
 # Install OS level Wagtail dependencies
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
