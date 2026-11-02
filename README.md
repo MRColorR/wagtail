@@ -298,7 +298,7 @@ If you find value in this project, consider making a donation
 
 Support ongoing development, testing and documentation through [Ko-fi](https://ko-fi.com/mrcolorrain). One-time contributions and monthly memberships are welcome, and you can pledge above a tier's minimum.
 
-Support is optional. Contributions do not guarantee feature delivery, priority support, provider recommendations or exclusivity. Technical decisions remain independent.
+Your contribution helps me keep building, testing and sharing useful work. Explore the membership benefits on Ko-fi and choose the way you would like to support. Technical decisions remain independent.
 
 Your support, no matter how small, is enormously appreciated and directly fuels ongoing and future developments. Thank you for your generosity! 🙏
 
@@ -324,4 +324,3 @@ Distributed under the **GNU General Public License v3.0**. See `LICENSE` for mor
 ---
 
 _Made with ❤️ for the community_
-
