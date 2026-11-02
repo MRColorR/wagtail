@@ -294,11 +294,11 @@ If you find value in this project, consider making a donation
 - **Polygon (MATIC):** `0xE65c32004b968cd1b4084bC3484C0dA051eeD3ee`
 - **BNB (Binance Smart Chain):** `0xE65c32004b968cd1b4084bC3484C0dA051eeD3ee`
 
-### Support via Other Platforms
+### Support on Ko-fi
 
-- **Patreon:** [Support me on Patreon](https://patreon.com/mrcolorrain)
-- **Buy Me a Coffee:** [Buy me a coffee](https://buymeacoffee.com/mrcolorrain)
-- **Ko-fi:** [Support me on Ko-fi](https://ko-fi.com/mrcolorrain)
+Support ongoing development, testing and documentation through [Ko-fi](https://ko-fi.com/mrcolorrain). One-time contributions and monthly memberships are welcome, and you can pledge above a tier's minimum.
+
+Support is optional. Contributions do not guarantee feature delivery, priority support, provider recommendations or exclusivity. Technical decisions remain independent.
 
 Your support, no matter how small, is enormously appreciated and directly fuels ongoing and future developments. Thank you for your generosity! 🙏
 
@@ -324,3 +324,4 @@ Distributed under the **GNU General Public License v3.0**. See `LICENSE` for mor
 ---
 
 _Made with ❤️ for the community_
+
