@@ -1,14 +1,15 @@
-# 🎯 Wagtail Image Starter Kit
+# Wagtail Image Starter Kit
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorr/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
-![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
-![Docker Stars](https://img.shields.io/docker/stars/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
+<!-- Project README scaffold: https://github.com/MRColorR/project-template -->
 
-> **🔍 Overview:** The easiest way to run Wagtail CMS in Docker or Kubernetes. Launch a simple Wagtail CMS website in minutes with persistent storage (Docker volumes, bind mounts, or Kubernetes PVCs), automated setup, and zero manual configuration. **Keywords:** wagtail docker image, wagtail starter kit, wagtail cms, wagtail kubernetes, wagtail docker-compose, wagtail quickstart, wagtail CMS, wagtail website, wagtail blog, wagtail image
+<a name="-wagtail-image-starter-kit"></a>
 
-⭐️ If you found this project helpful, please give it a star on GitHub! ⭐️
+[Overview](#overview) | [Getting started](#getting-started) | [Documentation](#documentation) | [Contributing](#contributing) | [Support](#support) | [License](#license)
 
-## Table of Contents
+<a name="table-of-contents"></a>
+
+<details>
+<summary>Project section index</summary>
 
 - [🌟 Key Features](#-key-features)
 - [🚀 Quick Start](#-quick-start)
@@ -22,7 +23,21 @@
 - [📄 License](#-license)
 - [🔗 Links and Support](#-links-and-support)
 
-## 🌟 Key Features
+</details>
+
+## Overview
+
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mrcolorr/wagtail/build-push-images.yml?style=flat-square&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fmrcolorrain%2Fwagtail)
+![Docker Pulls](https://img.shields.io/docker/pulls/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
+![Docker Stars](https://img.shields.io/docker/stars/mrcolorrain/wagtail?style=flat-square&link=https://hub.docker.com/r/mrcolorrain/wagtail)
+
+> **🔍 Overview:** The easiest way to run Wagtail CMS in Docker or Kubernetes. Launch a simple Wagtail CMS website in minutes with persistent storage (Docker volumes, bind mounts, or Kubernetes PVCs), automated setup, and zero manual configuration. **Keywords:** wagtail docker image, wagtail starter kit, wagtail cms, wagtail kubernetes, wagtail docker-compose, wagtail quickstart, wagtail CMS, wagtail website, wagtail blog, wagtail image
+
+⭐️ If you found this project helpful, please give it a star on GitHub! ⭐️
+
+<a name="-key-features"></a>
+
+### Key Features
 
 - **🚀 Instant Wagtail Setup:** Start a new Wagtail CMS project with a single Docker command—no manual steps required.
 - **💾 Persistent Storage:** Supports Docker volumes, bind mounts, and Kubernetes PVCs for database and media files.
@@ -34,11 +49,15 @@
 
 > _Why choose Wagtail Image Starter Kit?_ Launch your Wagtail CMS in minutes—just pull, run, and go! ⭐️
 
-## 🚀 Quick Start
+## Getting started
+
+<a name="-quick-start"></a>
+
+### Quick Start
 
 Get up and running in less than 5 minutes:
 
-### 🐳 Docker
+#### 🐳 Docker
 
 If you have Docker installed, you can run Wagtail with a single command:
 
@@ -54,7 +73,7 @@ docker run -d --name wagtail \
   mrcolorrain/wagtail:latest
 ```
 
-### ☸️ Kubernetes
+#### ☸️ Kubernetes
 
 If you prefer Kubernetes, you can deploy Wagtail using the provided manifests:
 
@@ -79,7 +98,7 @@ If you prefer Kubernetes, you can deploy Wagtail using the provided manifests:
 
 > **Tip:** Use Docker volumes or bind mounts for local dev, and PVCs for Kubernetes.
 
-### 📦 Build from Source
+#### 📦 Build from Source
 
 If you want to customize the image or contribute to the project, you can build it from source:
 
@@ -91,7 +110,11 @@ docker build -t mrcolorrain/wagtail:latest -f Dockerfile .
 
 Then run the image as shown above.
 
-## 📚 Usage
+## Documentation
+
+<a name="-usage"></a>
+
+### Usage
 
 To customize your project name and data directory, add the `PROJECT_NAME` and `DEST_DIR` environment variables and adjust the volume mount:
 
@@ -114,11 +137,13 @@ _For a full list of `manage.py` commands, open a shell inside the container and 
 python manage.py --help
 ```
 
-## ▶️ Run the Example Project
+<a name="️-run-the-example-project"></a>
+
+### Run the Example Project
 
 The included Wagtail example `/app/examples/your-first-wagtail-site/`  is available in both image and source code.
 
-### 🐍 Run locally from source code with Python
+#### 🐍 Run locally from source code with Python
 
 You can run it directly with Python for local development, or copy it to your data directory to start a new project:
 
@@ -145,7 +170,7 @@ You can run it directly with Python for local development, or copy it to your da
 
 > **Note:** The example is tracked in `app/examples/your-first-wagtail-site/` in the repo, and always available at `/app/examples/your-first-wagtail-site/` inside the container, even if you mount a volume over `/app/data`.
 
-### 🐳 Run using Docker image
+#### 🐳 Run using Docker image
 
 If you want to run the included example project in Docker, you can use it from the `/app/examples/your-first-wagtail-site/` path, even if you mount a volume over `/app/data`:
 
@@ -186,7 +211,9 @@ docker run -d --name wagtail \
 
 > **Tip:** The ready to use example is always available at `/app/examples/your-first-wagtail-site/` inside the container, so you can copy it out at any time, even if `/app/data` is mounted as a volume.
 
-## 🔧 Configuration
+<a name="-configuration"></a>
+
+### Configuration
 
 Set environment variables to customize your instance:
 
@@ -199,7 +226,9 @@ Set environment variables to customize your instance:
 | DJANGO_SUPERUSER_EMAIL    | Admin email          | Yes      | -                |
 | DJANGO_SUPERUSER_PASSWORD | Admin password       | Yes      | -                |
 
-## 📦 Modules and Plugins
+<a name="-modules-and-plugins"></a>
+
+### Modules and Plugins
 
 | Module/Plugin | Description       | Enabled by Default |
 | ------------- | ----------------- | ------------------ |
@@ -210,7 +239,9 @@ Set environment variables to customize your instance:
 
 > **Tip:** Use your own database and add your desired plugins by overriding settings or mounting a custom config. This makes it easy to extend your Wagtail project with any third-party or custom modules you prefer.
 
-## ✍️ Markdown Support
+<a name="️-markdown-support"></a>
+
+### Markdown Support
 
 This starter kit includes built-in support for Markdown content editing using the [wagtail-markdown](https://github.com/torchbox/wagtail-markdown) plugin.
 
@@ -224,7 +255,9 @@ This starter kit includes built-in support for Markdown content editing using th
 
 > See the example project in `app/examples/your-first-wagtail-site/` for implementation details.
 
-## 📝 Examples
+<a name="-examples"></a>
+
+### Examples
 
 - **Run with Docker Compose:**
 
@@ -249,7 +282,9 @@ This starter kit includes built-in support for Markdown content editing using th
   tar czvf wagtail-backup.tar.gz ./data
   ```
 
-## ❓ FAQ
+<a name="-faq"></a>
+
+### FAQ
 
 **Q: Can I use this for production?**
 A: This is a starter kit for easy Wagtail deployment. For high-traffic or production use, consider switching to PostgreSQL and customizing security settings.
@@ -260,7 +295,22 @@ A: Use Docker volumes, bind mounts, or Kubernetes PVCs to store `/app/data` (the
 **Q: How do I backup my site?**
 A: Backup the `/app/data` directory (contains SQLite DB and media files). If you changed `DEST_DIR`, backup that directory instead.
 
-## 🤝 Contributing
+<a name="-links-and-support"></a>
+
+### Links and Support
+
+- **Documentation:** [Wagtail Docs](https://docs.wagtail.org/)
+- **Issues:** [GitHub Issues](https://github.com/MRColorR/wagtail/issues)
+- **DockerHub:** [DockerHub Image](https://hub.docker.com/r/mrcolorrain/wagtail)
+- **Author:** [MRColorR]
+
+---
+
+_Made with ❤️ for the community_
+
+## Contributing
+
+<a name="-contributing"></a>
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -268,7 +318,13 @@ A: Backup the `/app/data` directory (contains SQLite DB and media files). If you
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 🫶 Support the Project
+Please include enough context to reproduce a problem or review a change.
+
+## Support
+
+Ko-fi supports Mattia / MrColorRain's work across projects.
+
+<a name="-support-the-project"></a>
 
 Your support helps keep this project alive and accessible for everyone. Here’s how you can help:
 
@@ -302,25 +358,20 @@ Your contribution helps me keep building, testing and sharing useful work. Explo
 
 Your support, no matter how small, is enormously appreciated and directly fuels ongoing and future developments. Thank you for your generosity! 🙏
 
-## Disclaimer ⚠️
+See the [supporters and sponsors directory](https://github.com/MRColorR/MRColorR/blob/main/SPONSORS.md) for acknowledgments.
+
+## License
+
+<a name="-license"></a>
+
+Distributed under the **GNU General Public License v3.0**. See `LICENSE` for more information.
+
+<a name="disclaimer-️"></a>
+
+### Disclaimer
 
 This project and its artifacts are provided "as is" and without warranty of any kind.
 
 The author makes no warranties, express or implied, that this Wagtail Docker Starter Kit is free of errors, defects, or suitable for any particular purpose.
 
 The author shall not be held liable for any damages suffered by any user of this project or its documentation, whether direct, indirect, incidental, consequential, or special, arising from the use of or inability to use this project.
-
-## 📄 License
-
-Distributed under the **GNU General Public License v3.0**. See `LICENSE` for more information.
-
-## 🔗 Links and Support
-
-- **Documentation:** [Wagtail Docs](https://docs.wagtail.org/)
-- **Issues:** [GitHub Issues](https://github.com/MRColorR/wagtail/issues)
-- **DockerHub:** [DockerHub Image](https://hub.docker.com/r/mrcolorrain/wagtail)
-- **Author:** [MRColorR]
-
----
-
-_Made with ❤️ for the community_
