@@ -4,7 +4,11 @@
 
 <a name="-wagtail-image-starter-kit"></a>
 
-[Overview](#overview) | [Getting started](#getting-started) | [Documentation](#documentation) | [Contributing](#contributing) | [Support](#support) | [License](#license)
+**Start a Wagtail CMS site in Docker or Kubernetes with persistent storage.**
+
+[**See installation options**](#getting-started) · [Documentation](#documentation) · [Support](#support)
+
+**Leave a star ⭐ if you like this project 🙂 Thank you!**
 
 <a name="table-of-contents"></a>
 
@@ -33,7 +37,6 @@
 
 > **🔍 Overview:** The easiest way to run Wagtail CMS in Docker or Kubernetes. Launch a simple Wagtail CMS website in minutes with persistent storage (Docker volumes, bind mounts, or Kubernetes PVCs), automated setup, and zero manual configuration. **Keywords:** wagtail docker image, wagtail starter kit, wagtail cms, wagtail kubernetes, wagtail docker-compose, wagtail quickstart, wagtail CMS, wagtail website, wagtail blog, wagtail image
 
-⭐️ If you found this project helpful, please give it a star on GitHub! ⭐️
 
 <a name="-key-features"></a>
 
@@ -322,7 +325,9 @@ Please include enough context to reproduce a problem or review a change.
 
 ## Support
 
-Ko-fi supports Mattia / MrColorRain's work across projects.
+Help fund ongoing development, testing, and documentation with a one-time contribution or monthly membership on [Ko-fi](https://ko-fi.com/mrcolorrain). Technical decisions remain independent.
+
+Thank you to the people who support MrColorRain’s work. See the [supporters and sponsors directory](https://github.com/MRColorR/MRColorR/blob/main/SPONSORS.md).
 
 <a name="-support-the-project"></a>
 
@@ -352,13 +357,7 @@ If you find value in this project, consider making a donation
 
 ### Support on Ko-fi
 
-Support ongoing development, testing and documentation through [Ko-fi](https://ko-fi.com/mrcolorrain). One-time contributions and monthly memberships are welcome, and you can pledge above a tier's minimum.
-
-Your contribution helps me keep building, testing and sharing useful work. Explore the membership benefits on Ko-fi and choose the way you would like to support. Technical decisions remain independent.
-
 Your support, no matter how small, is enormously appreciated and directly fuels ongoing and future developments. Thank you for your generosity! 🙏
-
-See the [supporters and sponsors directory](https://github.com/MRColorR/MRColorR/blob/main/SPONSORS.md) for acknowledgments.
 
 ## License
 
